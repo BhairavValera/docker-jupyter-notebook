@@ -71,7 +71,7 @@ RUN pip install --upgrade pip && \
     # add galaxy-ie-helpers to PATH
     echo 'export PATH=/home/jovyan/.local/bin:$PATH' >> /home/jovyan/.bashrc 
 
-ADD /Users/celsloaner/docker-jupyter-notebook/startup.sh
+ADD /Users/celsloaner/docker-jupyter-notebook/startup.sh /startup.sh
 ADD docker-jupyter-notebook/monitor_traffic.sh /monitor_traffic.sh
 ADD docker-jupyter-notebook/get_notebook.py /get_notebook.py
 
