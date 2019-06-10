@@ -41,6 +41,7 @@ USER jovyan
 # Python packages
 RUN conda config --add channels r && conda install --yes --quiet biopython rpy2 \
     cython patsy statsmodels cloudpickle dill tensorflow=1.0* r-xml && conda clean -yt && \
+    pip install --upgrade pip && \
     pip install --no-cache-dir bioblend galaxy-ie-helpers globus-sdk
 
 # Now for a python2 environment
