@@ -26,7 +26,7 @@ RUN apt-get -qq update && apt-get install --no-install-recommends -y libcurl4-op
 # Ruby dependencies
 RUN add-apt-repository -y  ppa:brightbox/ruby-ng && \
     sed -i s/jessie/trusty/g  /etc/apt/sources.list.d/brightbox-ruby-ng-jessie.list && apt-get update && \
-    apt-get install -y --no-install-recommends ruby2.2 ruby2.2-dev libtool autoconf automake gnuplot-nox libsqlite3-dev \
+    apt-get install -y --no-install-recommends ruby2.3 ruby2.3-dev libtool autoconf automake gnuplot-nox libsqlite3-dev \
     libatlas-base-dev libgsl0-dev libmagick++-dev imagemagick && \
     ln -s /usr/bin/libtoolize /usr/bin/libtool && \
     apt-get purge -y software-properties-common && \
@@ -41,7 +41,7 @@ USER jovyan
 # Python packages
 RUN conda config --add channels r && conda install --yes --quiet biopython rpy2 \
     cython patsy statsmodels cloudpickle dill tensorflow=1.0* r-xml && conda clean -yt && \
-    pip install --no-cache-dir bioblend galaxy-ie-helpers
+    pip install --no-cache-dir bioblend galaxy-ie-helpers globus-sdk
 
 # Now for a python2 environment
 RUN /bin/bash -c "source activate python2 && conda install --quiet --yes biopython rpy2 \
