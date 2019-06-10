@@ -46,7 +46,8 @@ RUN conda config --add channels r && conda install --yes --quiet biopython rpy2 
 # Now for a python2 environment
 RUN /bin/bash -c "source activate python2 && conda install --quiet --yes biopython rpy2 \
     cython patsy statsmodels cloudpickle dill tensorflow=1.0* && conda clean -yt && \
-    pip install --no-cache-dir bioblend galaxy-ie-helpers"
+    pip install --upgrade pip && \
+    pip install --no-cache-dir bioblend galaxy-ie-helpers globus-sdk"
 
 # IRuby
 RUN iruby register
