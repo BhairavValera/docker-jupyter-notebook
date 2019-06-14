@@ -2,6 +2,8 @@
 
 FROM jupyter/datascience-notebook:628fbcb24afd
 
+EXPOSE 8080
+
 MAINTAINER Björn A. Grüning, bjoern.gruening@gmail.com
 
 ENV DEBIAN_FRONTEND noninteractive
